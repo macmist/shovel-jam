@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg58i4nwjjh3u"]
+
+[ext_resource type="Script" path="res://get_started_button.gd" id="1_veuiq"]
+[ext_resource type="Script" path="res://exit_button.gd" id="2_wutxo"]
+
+[node name="Scene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/v_separation = 29
+
+[node name="Get Started Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Get started"
+script = ExtResource("1_veuiq")
+
+[node name="Exit Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+visible = false
+layout_mode = 2
+text = "Quit game"
+script = ExtResource("2_wutxo")
+
+[connection signal="focus_entered" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Get Started Button" to="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Get Started Button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Get Started Button" to="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Get Started Button" method="_on_focus_exited"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Get Started Button" to="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Get Started Button" method="_on_pressed"]
+[connection signal="show_exit" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Get Started Button" to="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Exit Button" method="_on_get_started_button_show_exit"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Exit Button" to="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Exit Button" method="_on_pressed"]
