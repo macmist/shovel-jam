@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dujchpnmlpam0"]
+
+[node name="OptionMenu" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Background color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pick"
+icon_alignment = 1
+color = Color(0.695859, 0.35658, 0.73173, 1)
+edit_alpha = false
