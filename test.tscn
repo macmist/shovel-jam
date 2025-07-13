@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://lyjts5pxh2he"]
+
+[node name="CheckButton" type="CheckButton"]
+offset_left = 266.0
+offset_top = 209.0
+offset_right = 423.0
+offset_bottom = 259.0
+theme_type_variation = &"FakeInvisibleButton"
+disabled = true
+text = "Coucou"

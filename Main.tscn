@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg58i4nwjjh3u"]
+[gd_scene load_steps=8 format=3 uid="uid://dg58i4nwjjh3u"]
 
+[ext_resource type="PackedScene" uid="uid://lyjts5pxh2he" path="res://test.tscn" id="1_0u3y7"]
 [ext_resource type="Script" path="res://get_started_button.gd" id="1_veuiq"]
 [ext_resource type="Texture2D" uid="uid://c576pme8oj2db" path="res://Exit.png" id="2_t4bbr"]
 [ext_resource type="Script" path="res://exit_button.gd" id="2_wutxo"]
@@ -15,6 +16,8 @@ offset_left = -707.0
 offset_top = -416.0
 offset_right = 776.0
 offset_bottom = 418.0
+
+[node name="CheckButton" parent="." instance=ExtResource("1_0u3y7")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -74,6 +77,7 @@ layout_mode = 2
 theme_override_constants/separation = 6
 
 [node name="OptionsButton" type="TextureButton" parent="CanvasLayer/MarginContainer3/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("4_e4qsg")
