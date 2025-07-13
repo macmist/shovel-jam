@@ -9,6 +9,13 @@
 
 [node name="Scene" type="Node2D"]
 
+[node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_left = -707.0
+offset_top = -416.0
+offset_right = 776.0
+offset_bottom = 418.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -85,3 +92,4 @@ size_flags_vertical = 3
 [connection signal="show_options" from="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" to="CanvasLayer/MarginContainer3/VBoxContainer/OptionsButton" method="_on_get_started_button_show_options"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/Exit Button" to="CanvasLayer/MarginContainer/Exit Button" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer3/VBoxContainer/OptionsButton" to="CanvasLayer/MarginContainer3/VBoxContainer/OptionsButton" method="_on_pressed"]
+[connection signal="color_changed" from="CanvasLayer/MarginContainer3/VBoxContainer/OptionMenu" to="CanvasLayer/MarginContainer3/VBoxContainer/OptionsButton" method="_on_option_menu_color_changed"]
