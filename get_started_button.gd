@@ -5,6 +5,7 @@ var click: int = 0
 var tooltip_shown: int = 0
 
 signal show_exit
+signal show_options
 
 var template = "Clieck %d times"
 
@@ -15,6 +16,8 @@ func _make_custom_tooltip(for_text: String) -> Object:
 	tooltip_shown += 1
 	if for_text == "Here":
 		show_exit.emit()
+	if for_text == "Have a look in the options, then stop bothering me. I'm done here":
+		show_options.emit()
 	return label
 	
 func update_tooltip_text() -> void:
@@ -34,6 +37,32 @@ func update_tooltip_text() -> void:
 
 	if tooltip_shown == 14:
 		tooltip_text = "Now you can exit"
+	
+	if tooltip_shown == 15:
+		tooltip_text = "..."
+	
+	if tooltip_shown == 16:
+		tooltip_text = "Still here?"
+		
+	if tooltip_shown == 17:
+		tooltip_text = "You know it won't work right?"
+		
+	if tooltip_shown == 18:
+		tooltip_text = "..."
+		
+	if tooltip_shown == 19:
+		tooltip_text = "Right."
+		
+	if tooltip_shown == 20:
+		tooltip_text = "I'll tell you what"
+		
+	if tooltip_shown == 21:
+		tooltip_text = "Have a look in the options, then stop bothering me. I'm done here"
+		
+	if tooltip_shown > 21:
+		tooltip_text = ''
+		
+		
 
 func _on_pressed() -> void:
 	click += 1
