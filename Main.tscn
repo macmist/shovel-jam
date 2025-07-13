@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg58i4nwjjh3u"]
+[gd_scene load_steps=7 format=3 uid="uid://dg58i4nwjjh3u"]
 
 [ext_resource type="Script" path="res://get_started_button.gd" id="1_veuiq"]
 [ext_resource type="Texture2D" uid="uid://c576pme8oj2db" path="res://Exit.png" id="2_t4bbr"]
 [ext_resource type="Script" path="res://exit_button.gd" id="2_wutxo"]
 [ext_resource type="Texture2D" uid="uid://bdu14ue1k7538" path="res://Cog.png" id="4_e4qsg"]
 [ext_resource type="Script" path="res://options.gd" id="5_6wd6c"]
+[ext_resource type="PackedScene" uid="uid://dujchpnmlpam0" path="res://option_menu.tscn" id="6_g3ow8"]
 
 [node name="Scene" type="Node2D"]
 
@@ -56,19 +57,31 @@ script = ExtResource("2_wutxo")
 [node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 
-[node name="Options" type="TextureButton" parent="CanvasLayer/MarginContainer3"]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer3"]
 layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="OptionsButton" type="TextureButton" parent="CanvasLayer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 texture_normal = ExtResource("4_e4qsg")
 script = ExtResource("5_6wd6c")
+
+[node name="OptionMenu" parent="CanvasLayer/MarginContainer3/VBoxContainer" instance=ExtResource("6_g3ow8")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
 
 [connection signal="focus_entered" from="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" to="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" method="_on_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" to="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" method="_on_focus_exited"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" to="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" method="_on_pressed"]
 [connection signal="show_exit" from="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" to="CanvasLayer/MarginContainer/Exit Button" method="_on_get_started_button_show_exit"]
-[connection signal="show_options" from="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" to="CanvasLayer/MarginContainer3/Options" method="_on_get_started_button_show_options"]
+[connection signal="show_options" from="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" to="CanvasLayer/MarginContainer3/VBoxContainer/OptionsButton" method="_on_get_started_button_show_options"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/Exit Button" to="CanvasLayer/MarginContainer/Exit Button" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer3/Options" to="CanvasLayer/MarginContainer3/Options" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer3/VBoxContainer/OptionsButton" to="CanvasLayer/MarginContainer3/VBoxContainer/OptionsButton" method="_on_pressed"]
