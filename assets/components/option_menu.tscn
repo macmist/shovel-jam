@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dujchpnmlpam0"]
+[gd_scene load_steps=4 format=3 uid="uid://dujchpnmlpam0"]
 
 [ext_resource type="Script" path="res://assets/scripts/option_menu.gd" id="1_ug33q"]
 [ext_resource type="PackedScene" uid="uid://ttb18im3nts3" path="res://assets/components/update_input_button.tscn" id="2_wi36d"]
+[ext_resource type="Script" path="res://assets/scripts/enable_background_buttons.gd" id="3_p7ow2"]
 
 [node name="OptionMenu" type="PanelContainer"]
 offset_right = 40.0
@@ -27,11 +28,13 @@ horizontal_alignment = 1
 [node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/side_margin = 9
-current_tab = 0
+current_tab = 3
 clip_tabs = false
 use_hidden_tabs_for_min_size = true
+tab_focus_mode = 1
 
 [node name="Graphics" type="GridContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/h_separation = 2
 columns = 2
@@ -48,6 +51,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+focus_mode = 1
 text = "Pick"
 icon_alignment = 1
 color = Color(1, 1, 1, 1)
@@ -72,6 +76,7 @@ text = "Left
 
 [node name="Left" parent="MarginContainer/VBoxContainer/TabContainer/Inputs" instance=ExtResource("2_wi36d")]
 layout_mode = 2
+focus_mode = 1
 input_action = "Left"
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Inputs"]
@@ -81,6 +86,7 @@ text = "Right"
 
 [node name="Right" parent="MarginContainer/VBoxContainer/TabContainer/Inputs" instance=ExtResource("2_wi36d")]
 layout_mode = 2
+focus_mode = 1
 input_action = "Right"
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Inputs"]
@@ -90,6 +96,7 @@ text = "Up"
 
 [node name="Up" parent="MarginContainer/VBoxContainer/TabContainer/Inputs" instance=ExtResource("2_wi36d")]
 layout_mode = 2
+focus_mode = 1
 input_action = "Up"
 
 [node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Inputs"]
@@ -99,6 +106,23 @@ text = "Down"
 
 [node name="Down" parent="MarginContainer/VBoxContainer/TabContainer/Inputs" instance=ExtResource("2_wi36d")]
 layout_mode = 2
+focus_mode = 1
 input_action = "Down"
 
+[node name="General" type="GridContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+columns = 2
+metadata/_tab_index = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/General"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enable background buttons"
+
+[node name="EnableBackgroundButtons" type="CheckBox" parent="MarginContainer/VBoxContainer/TabContainer/General"]
+layout_mode = 2
+size_flags_horizontal = 6
+script = ExtResource("3_p7ow2")
+
 [connection signal="color_changed" from="MarginContainer/VBoxContainer/TabContainer/Graphics/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TabContainer/General/EnableBackgroundButtons" to="MarginContainer/VBoxContainer/TabContainer/General/EnableBackgroundButtons" method="_on_pressed"]

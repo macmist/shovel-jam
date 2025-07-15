@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://lyjts5pxh2he"]
+[gd_scene load_steps=2 format=3 uid="uid://lyjts5pxh2he"]
+
+[ext_resource type="Script" path="res://assets/scripts/fake_invisible_check_button.gd" id="1_qe5qc"]
 
 [node name="Fake Invisible Check Button" type="CheckButton"]
 offset_right = 174.0
@@ -6,3 +8,6 @@ offset_bottom = 72.0
 theme_type_variation = &"FakeInvisibleButton"
 disabled = true
 text = "Coucou"
+script = ExtResource("1_qe5qc")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

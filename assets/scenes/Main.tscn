@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dg58i4nwjjh3u"]
+[gd_scene load_steps=10 format=3 uid="uid://dg58i4nwjjh3u"]
 
+[ext_resource type="Script" path="res://assets/scenes/main.gd" id="1_5jprt"]
 [ext_resource type="PackedScene" uid="uid://lyjts5pxh2he" path="res://assets/components/fake_invisible_check_button.tscn" id="1_dbygy"]
 [ext_resource type="Script" path="res://assets/scripts/get_started_button.gd" id="2_nmwo6"]
+[ext_resource type="Script" path="res://assets/scenes/camera.gd" id="2_uogdc"]
 [ext_resource type="Texture2D" uid="uid://c576pme8oj2db" path="res://assets/UI/Exit.png" id="3_1twra"]
 [ext_resource type="Script" path="res://assets/scripts/exit_button.gd" id="4_d2bto"]
 [ext_resource type="Texture2D" uid="uid://bdu14ue1k7538" path="res://assets/UI/Cog.png" id="5_etyys"]
@@ -9,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dujchpnmlpam0" path="res://assets/components/option_menu.tscn" id="7_hhfae"]
 
 [node name="Scene" type="Node2D"]
+script = ExtResource("1_5jprt")
 
 [node name="Background" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -17,10 +20,11 @@ offset_top = -416.0
 offset_right = 776.0
 offset_bottom = 418.0
 
-[node name="CheckButton" parent="." instance=ExtResource("1_dbygy")]
+[node name="EnableKeyboard" parent="." instance=ExtResource("1_dbygy")]
 text = "Enable arrow key on the keyboard"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_uogdc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -89,6 +93,7 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
+[connection signal="pressed" from="EnableKeyboard" to="." method="_on_enable_keyboard_pressed"]
 [connection signal="focus_entered" from="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" to="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" method="_on_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" to="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" method="_on_focus_exited"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" to="CanvasLayer/MarginContainer2/GridContainer/Get Started Button" method="_on_pressed"]
