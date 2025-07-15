@@ -23,3 +23,10 @@ window/size/viewport_height=720
 [gui]
 
 theme/custom="res://main_theme.tres"
+
+[input]
+
+Left={
+"deadzone": 0.5,
+"events": []
+}
