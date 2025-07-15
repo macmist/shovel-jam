@@ -30,3 +30,15 @@ Left={
 "deadzone": 0.5,
 "events": []
 }
+Right={
+"deadzone": 0.5,
+"events": []
+}
+Up={
+"deadzone": 0.5,
+"events": []
+}
+Down={
+"deadzone": 0.5,
+"events": []
+}

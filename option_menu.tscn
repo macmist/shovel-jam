@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dujchpnmlpam0"]
 
 [ext_resource type="Script" path="res://option_menu.gd" id="1_ug33q"]
-[ext_resource type="Script" path="res://input_map_button.gd" id="2_gmi65"]
+[ext_resource type="PackedScene" uid="uid://ttb18im3nts3" path="res://update_input_button.tscn" id="2_wi36d"]
 
 [node name="OptionMenu" type="PanelContainer"]
 offset_right = 40.0
@@ -26,26 +26,28 @@ horizontal_alignment = 1
 
 [node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-current_tab = 2
+theme_override_constants/side_margin = 9
+current_tab = 0
 clip_tabs = false
 use_hidden_tabs_for_min_size = true
 
 [node name="Graphics" type="GridContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
+theme_override_constants/h_separation = 2
 columns = 2
 metadata/_tab_index = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Graphics"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 6
+size_flags_stretch_ratio = 2.0
 text = "Background color"
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="MarginContainer/VBoxContainer/TabContainer/Graphics"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 text = "Pick"
 icon_alignment = 1
 color = Color(1, 1, 1, 1)
@@ -57,20 +59,46 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Inputs" type="GridContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 columns = 2
 metadata/_tab_index = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Inputs"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Left
 "
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/TabContainer/Inputs"]
+[node name="Left" parent="MarginContainer/VBoxContainer/TabContainer/Inputs" instance=ExtResource("2_wi36d")]
 layout_mode = 2
-text = "None"
-script = ExtResource("2_gmi65")
 input_action = "Left"
 
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Inputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Right"
+
+[node name="Right" parent="MarginContainer/VBoxContainer/TabContainer/Inputs" instance=ExtResource("2_wi36d")]
+layout_mode = 2
+input_action = "Right"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Inputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Up"
+
+[node name="Up" parent="MarginContainer/VBoxContainer/TabContainer/Inputs" instance=ExtResource("2_wi36d")]
+layout_mode = 2
+input_action = "Up"
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Inputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Down"
+
+[node name="Down" parent="MarginContainer/VBoxContainer/TabContainer/Inputs" instance=ExtResource("2_wi36d")]
+layout_mode = 2
+input_action = "Down"
+
 [connection signal="color_changed" from="MarginContainer/VBoxContainer/TabContainer/Graphics/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/TabContainer/Inputs/Button" to="MarginContainer/VBoxContainer/TabContainer/Inputs/Button" method="_on_pressed"]
