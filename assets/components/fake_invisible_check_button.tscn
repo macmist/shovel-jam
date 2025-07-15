@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://lyjts5pxh2he"]
+
+[node name="Fake Invisible Check Button" type="CheckButton"]
+offset_right = 174.0
+offset_bottom = 72.0
+theme_type_variation = &"FakeInvisibleButton"
+disabled = true
+text = "Coucou"

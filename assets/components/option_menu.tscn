@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dujchpnmlpam0"]
 
-[ext_resource type="Script" path="res://option_menu.gd" id="1_ug33q"]
-[ext_resource type="PackedScene" uid="uid://ttb18im3nts3" path="res://update_input_button.tscn" id="2_wi36d"]
+[ext_resource type="Script" path="res://assets/scripts/option_menu.gd" id="1_ug33q"]
+[ext_resource type="PackedScene" uid="uid://ttb18im3nts3" path="res://assets/components/update_input_button.tscn" id="2_wi36d"]
 
 [node name="OptionMenu" type="PanelContainer"]
 offset_right = 40.0
