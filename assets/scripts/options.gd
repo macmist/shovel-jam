@@ -5,8 +5,7 @@ extends TextureButton
 
 
 func _on_pressed() -> void:
-	print("options")
-	option_menu.visible = true
+	option_menu.visible = !option_menu.visible
 
 
 func _on_get_started_button_show_options() -> void:

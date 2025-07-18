@@ -18,4 +18,5 @@ func _input(event: InputEvent) -> void:
 	
 	
 func _on_pressed() -> void:
-	update_input = true
+	if Globals.keyboard_enabled and !update_input:
+		update_input = true
