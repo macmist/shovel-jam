@@ -4,6 +4,8 @@ var is_focused = false
 var click: int = 0
 var tooltip_shown: int = 0
 
+signal game_start
+
 signal show_exit
 signal show_options
 
@@ -65,8 +67,12 @@ func update_tooltip_text() -> void:
 		
 
 func _on_pressed() -> void:
-	click += 1
-	update_tooltip_text()
+	if Globals.get_started_actually_starts:
+		game_start.emit()
+		return
+	else:
+		click += 1
+		update_tooltip_text()
 	
 
 func _on_focus_entered() -> void:
