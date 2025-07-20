@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Shovel Jam"
+config/name="Can you get started?"
+config/description="There is one button, get started. But will you manage to make it work?"
 run/main_scene="res://assets/scenes/Main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"

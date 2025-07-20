@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dujchpnmlpam0"]
+[gd_scene load_steps=8 format=3 uid="uid://dujchpnmlpam0"]
 
 [ext_resource type="Script" path="res://assets/scripts/option_menu.gd" id="1_ug33q"]
 [ext_resource type="PackedScene" uid="uid://ttb18im3nts3" path="res://assets/components/update_input_button.tscn" id="2_wi36d"]
 [ext_resource type="Script" path="res://assets/scripts/enable_background_buttons.gd" id="3_p7ow2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xr8wm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvmj7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owhf4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty6ge"]
 
 [node name="OptionMenu" type="PanelContainer"]
 offset_right = 40.0
@@ -53,6 +61,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 focus_mode = 1
+theme_override_styles/focus = SubResource("StyleBoxFlat_xr8wm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yvmj7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_owhf4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty6ge")
 text = "Pick"
 icon_alignment = 1
 color = Color(1, 1, 1, 1)
@@ -62,6 +74,10 @@ edit_alpha = false
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Sound"]
+layout_mode = 2
+text = "Not available yet"
 
 [node name="Inputs" type="GridContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
 visible = false

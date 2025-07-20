@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://4im1273s2ar6"]
+
+[ext_resource type="PackedScene" uid="uid://jw5mkxo6dv6t" path="res://assets/components/draggable.tscn" id="1_b2lt4"]
+[ext_resource type="Texture2D" uid="uid://bm2hlnn8d26w5" path="res://assets/UI/yowin.png" id="2_t2s31"]
+
+[node name="GameStart" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_b2lt4")]
+texture = ExtResource("2_t2s31")

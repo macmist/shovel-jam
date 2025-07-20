@@ -5,7 +5,7 @@ var update_input = false
 
 
 func _input(event: InputEvent) -> void:
-	if !update_input or event is InputEventMouseMotion or !InputMap.has_action(input_action):
+	if !update_input or event is InputEventMouseMotion or event is InputEventMouseButton or !InputMap.has_action(input_action):
 		return
 	
 	InputMap.action_erase_events(input_action)
