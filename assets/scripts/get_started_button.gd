@@ -9,7 +9,7 @@ signal game_start
 signal show_exit
 signal show_options
 
-var template = "Clieck %d times"
+var template = "Clicked %d times"
 
 func _make_custom_tooltip(for_text: String) -> Object:
 	var label = Label.new()
